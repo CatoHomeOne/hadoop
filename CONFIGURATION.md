@@ -195,8 +195,11 @@ For a production cluster with multiple nodes:
 Add these settings to `$HADOOP_HOME/etc/hadoop/hadoop-env.sh`:
 
 ```bash
-# Java home
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64  # Adjust path
+# Java home - adjust path based on your system:
+# Ubuntu/Debian: /usr/lib/jvm/java-8-openjdk-amd64 or /usr/lib/jvm/java-11-openjdk-amd64
+# RHEL/CentOS: /usr/lib/jvm/java-1.8.0-openjdk or /usr/lib/jvm/java-11-openjdk
+# macOS (Homebrew): /usr/local/opt/openjdk@8 or /usr/local/opt/openjdk@11
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64  # Example for Ubuntu
 
 # Hadoop home
 export HADOOP_HOME=/path/to/hadoop  # Adjust path

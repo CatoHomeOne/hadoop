@@ -271,10 +271,12 @@ check_system_resources() {
     
     # Check available disk space
     if check_command df; then
+        # Get both human-readable and GB values in one call
+        DISK_INFO=$(df -BG . | awk 'NR==2 {print $4}')
+        DISK_AVAIL_GB=$(echo "$DISK_INFO" | tr -d 'G')
         DISK_AVAIL=$(df -h . | awk 'NR==2 {print $4}')
         print_info "Available disk space in current directory: $DISK_AVAIL"
         
-        DISK_AVAIL_GB=$(df -BG . | awk 'NR==2 {print $4}' | tr -d 'G')
         if [[ "$DISK_AVAIL_GB" -lt 20 ]]; then
             print_warning "Less than 20GB disk space available"
             print_info "Hadoop build requires significant disk space"
