@@ -63,3 +63,19 @@ report.html
 
 
 .mvn
+
+# Local development and deployment directories
+hadoop-deploy/
+hadoop-local/
+hadoop-data/
+
+# Environment backup files
+*.backup.*
+
+# Temporary setup files
+/tmp-setup/
+
+# Local Hadoop runtime files
+*.log
+logs/
+pids/
